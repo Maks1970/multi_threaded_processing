@@ -25,7 +25,7 @@
                     if (i == threadCount - 1) endIndex = arr.Length; // Останній потік обробляє залишок
 
                     int[] subArray = new int[endIndex - startIndex];
-                    Array.Copy(arr, startIndex, subArray, 0, subArray.Length);
+                    //Array.Copy(arr, startIndex, subArray, 0, subArray.Length);
 
                     var num = i;
                     _threads[i] = new Thread(() => Process(num))
@@ -53,7 +53,7 @@
 
                 for (int i = 0; i < span.Length; i++)
                 {
-                    span[i] = rand.Next();
+                    span[i] = rand.Next(1,20_000_000);
                 }
             }
         }

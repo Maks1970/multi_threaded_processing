@@ -23,8 +23,8 @@ namespace multi_threaded_processing
                 int endIndex = (i + 1) * chunkSize;
                 if (i == threadCount - 1) endIndex = arr.Length; // Останній потік обробляє залишок
 
-                int[] subArray = new int[endIndex - startIndex];
-                Array.Copy(arr, startIndex, subArray, 0, subArray.Length);
+               // int[] subArray = new int[endIndex - startIndex];
+                //Array.Copy(arr, startIndex, subArray, 0, subArray.Length);
 
                 var num = i;
                 _threads[i] = new Thread(() => results[num] = Process(startIndex, endIndex))
