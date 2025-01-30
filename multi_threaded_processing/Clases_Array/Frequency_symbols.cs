@@ -18,19 +18,36 @@ namespace multi_threaded_processing.Clases_Array
         {
             this.text = text;
             this.threadCount = threadCount;
-             chunkSize = text!.Length / threadCount;
         }
 
         public Dictionary<char, int> Run() 
         {
             this._threads = new Thread[threadCount];
+            int chunkSize = text.Length / threadCount;
+            int[] results = new int[threadCount];
             var lockObj = new object();
 
             for (int i = 0; i < threadCount; i++)
             {
+                int startIndex = i * chunkSize;
+                int endIndex = (i + 1) * chunkSize;
+                if (i == threadCount - 1) endIndex = text.Length; // Останній потік обробляє залишок
                 _threads[i] = new Thread(() =>
                 {
                     Process(i);
+                        //var span = text.AsSpan(startIndex, endIndex- startIndex);
+
+                    //foreach (char c in span)
+                    //{
+                    //    lock (lockObj)
+                    //    {
+                    //    if (freqDict.ContainsKey(c))
+                    //        freqDict[c]++;
+                    //    else
+                    //        freqDict[c] = 1;
+                    //    }
+                    //}
+
                 })
                 {
                     IsBackground = true
@@ -56,7 +73,7 @@ namespace multi_threaded_processing.Clases_Array
                 startIndex = (threadIndex-1) * chunkSize;
             }
                 lock (lockObj) {
-                var span = text.AsSpan(startIndex, endIndex);
+                var span = text.AsSpan(startIndex, endIndex- startIndex);
                 //  var num = threadIndex;
                 foreach (char c in span)
                 {
