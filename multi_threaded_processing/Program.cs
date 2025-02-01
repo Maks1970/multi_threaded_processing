@@ -23,9 +23,12 @@ namespace multi_threaded_processing
             var d = procArr.InCopyPart(3,2,8);
             string text = "I have a best friend. Her name is Anna. Anna is very nice and funny. We go to the same school. Every day, we walk to school together. After school, we like to play games. Our favorite game is soccer. Anna is very good at soccer. Sometimes, we also watch movies. My favorite movie is «Toy Story». Anna likes it too. We always have fun together.";
             var ssw = Stopwatch.StartNew();
-            var dic = new Frequency_symbols(text,3);
+            //var dic = new Frequency_Words(text,3);
             Dictionary<char, int> freqDict = new Dictionary<char, int>();
-            freqDict = dic.Run();
+           // Dictionary<string, int> freqDictt = new Dictionary<string, int>();
+           var conterSymbols = new Frequency_symbols(text,freqDict,3);
+            conterSymbols.Run();
+            //freqDict = dic.Run();
 
             //var texdcouner = text.AsSpan();
 
