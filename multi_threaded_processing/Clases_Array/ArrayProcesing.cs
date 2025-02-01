@@ -5,7 +5,7 @@ namespace multi_threaded_processing
 
     public class ArrayProcesing : ArrayStreamsBase
     {
-        public ArrayProcesing(int threadCount, int[] arr) : base(threadCount, arr)
+        public ArrayProcesing(int[] arr) : base(arr)
         {
         }
         
