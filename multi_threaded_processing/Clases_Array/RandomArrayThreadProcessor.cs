@@ -16,12 +16,11 @@
             {
                 this._threads = new Thread[threadCount];
                 int chunkSize = arr.Length / threadCount;
-                // Створення потоків
                 for (int i = 0; i < threadCount; i++)
                 {
                     int startIndex = i * chunkSize;
                     int endIndex = (i + 1) * chunkSize;
-                    if (i == threadCount - 1) endIndex = arr.Length; // Останній потік обробляє залишок
+                    if (i == threadCount - 1) endIndex = arr.Length;
                     int[] subArray = new int[endIndex - startIndex];
                     var num = i;
                     _threads[i] = new Thread(() => Process(num))
@@ -36,7 +35,6 @@
 
                 foreach (var thread in _threads) { thread.Join(); }
             }
-
             protected void Process(int threadIndex)
             {
                 var rand = new Random();
@@ -49,7 +47,7 @@
 
                 for (int i = 0; i < span.Length; i++)
                 {
-                    span[i] = rand.Next(1,20_00);
+                    span[i] = rand.Next(1,200_000);
                 }
             }
         }
