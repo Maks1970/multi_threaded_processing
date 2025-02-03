@@ -49,10 +49,10 @@ namespace multi_threaded_processing
             }
             //ssw.Stop();
 
-            var conterSymbols = new Frequency_symbolsB(text, Symbols, 3);
-            conterSymbols.Run();
-            var counterWord = new Frequency_WordsB(text, Words, 3);
-            counterWord.Run();
+            //var conterSymbols = new Frequency_symbolsB(text, Symbols, 3);
+            //conterSymbols.Run();
+            //var counterWord = new Frequency_WordsB(text, Words, 3);
+            //counterWord.Run();
             //foreach (var c in Words)
             //{
             //    Console.WriteLine($"{c.Key} - {c.Value}");

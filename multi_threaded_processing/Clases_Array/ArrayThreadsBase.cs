@@ -1,7 +1,7 @@
 ﻿
 namespace multi_threaded_processing
 {
-    public abstract class  ArrayThreadsBase <T>
+    public  class  ArrayThreadsBase <T>
     {
         protected object lockObj = new object();
         protected readonly T[] arr;
